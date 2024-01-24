@@ -20,4 +20,6 @@ jobs:
           cat > .env <<EOF
           TEST=${{ secrets.TOKEN }}
           EOF
+      - name: 確認
+        run: |
           cat .env
