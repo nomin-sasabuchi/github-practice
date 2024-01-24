@@ -21,6 +21,6 @@ jobs:
           version: 8
       - name: Set up Environments
         run: |
-          touch .env
-          echo 'TOKEN=${{ secrets.TOKEN }}' >> .env
-          ls
+          cat > .env <<EOF
+          TEST=${{ secrets.TOKEN }}
+          EOF
