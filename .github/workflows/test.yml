@@ -16,6 +16,7 @@ jobs:
           ref: ${{ github.head_ref }}
       - name: Set up Environments
         run: |
+          touch .env
           cat > .env <<EOF
           TEST=${{ secrets.TOKEN }}
           EOF
