@@ -25,4 +25,5 @@ jobs:
       - name: Set up Environments
         run: |
           touch .env
-          echo 'SHARED_COMPONENTS_TOKEN=${{ secrets.TOKEN }}' >> .env
+          echo 'TOKEN=${{ secrets.TOKEN }}' >> .env
+          ls
