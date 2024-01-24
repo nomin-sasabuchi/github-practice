@@ -14,11 +14,6 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
-      - name: pnpm setup
-        uses: pnpm/action-setup@v2.2.2
-        with:
-          # 必要に応じて pnpm のバージョンを変更してください
-          version: 8
       - name: Set up Environments
         run: |
           cat > .env <<EOF
