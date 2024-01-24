@@ -1,0 +1,28 @@
+#設定参考　https://tech.actindi.net/2019/10/11/090521
+
+# アクション名
+name: lint, typecheck, test
+
+# タイミングを指定
+on: push
+
+jobs:
+  lint-typecheck-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+      - name: pnpm setup
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          # 必要に応じて pnpm のバージョンを変更してください
+          version: 8
+      - name: Set up Environments
+        run: |
+          touch .env
+          echo 'SHARED_COMPONENTS_TOKEN=${{ secrets.TOKEN }}' >> .env
